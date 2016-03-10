@@ -20,7 +20,7 @@ public class MainActivity extends ActionBarActivity {
 
     private static final int START_LEVEL = 1;
     private int mLevel;
-    private Button mNextLevelButton;
+//    private Button mNextLevelButton;
     private InterstitialAd mInterstitialAd;
     private TextView mLevelTextView;
 
@@ -30,17 +30,16 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
 
         // Create the next level button, which tries to show an interstitial when clicked.
-        mNextLevelButton = ((Button) findViewById(R.id.next_level_button));
-        mNextLevelButton.setEnabled(false);
-        mNextLevelButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showInterstitial();
-            }
-        });
+//        mNextLevelButton = ((Button) findViewById(R.id.next_level_button));
+//        mNextLevelButton.setEnabled(false);
+//        mNextLevelButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                showInterstitial();
+//            }
+//        });
 
         // Create the text view to show the level number.
-        mLevelTextView = (TextView) findViewById(R.id.level);
         mLevel = START_LEVEL;
 
         // Create the InterstitialAd and set the adUnitId (defined in values/strings.xml).
@@ -79,12 +78,12 @@ public class MainActivity extends ActionBarActivity {
         interstitialAd.setAdListener(new AdListener() {
             @Override
             public void onAdLoaded() {
-                mNextLevelButton.setEnabled(true);
+//                mNextLevelButton.setEnabled(true);
             }
 
             @Override
             public void onAdFailedToLoad(int errorCode) {
-                mNextLevelButton.setEnabled(true);
+//                mNextLevelButton.setEnabled(true);
             }
 
             @Override
@@ -108,7 +107,7 @@ public class MainActivity extends ActionBarActivity {
 
     private void loadInterstitial() {
         // Disable the next level button and load the ad.
-        mNextLevelButton.setEnabled(false);
+//        mNextLevelButton.setEnabled(false);
         AdRequest adRequest = new AdRequest.Builder()
                 .setRequestAgent("android_studio:ad_template").build();
         mInterstitialAd.loadAd(adRequest);
